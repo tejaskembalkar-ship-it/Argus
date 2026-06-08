@@ -29,6 +29,8 @@ Research → Orchestration → Runtime → Argus (govern + improve)
 
 Argus is the final, always-on layer: it governs what the agent is allowed to do, keeps it secure and on-task, and feeds successful patterns back as reusable skills.
 
+ECC v2.0.0-rc.1 adds the public Hermes operator story on top of that reusable layer: start with the [Hermes setup guide](docs/HERMES-SETUP.md), then review the [rc.1 release notes](docs/releases/2.0.0-rc.1/release-notes.md) and [cross-harness architecture](docs/architecture/cross-harness.md).
+
 ---
 
 # Technical documentation
@@ -228,6 +230,8 @@ If you stacked methods, clean up in this order:
 ```
 
 **That's it!** You now have access to 63 agents, 249 skills, and 79 legacy command shims.
+
+- **Public surface synced to the live repo** — metadata, catalog counts, plugin manifests, and install-facing docs now match the actual OSS surface: 63 agents, 249 skills, and 79 legacy command shims.
 
 ### Dashboard GUI
 
