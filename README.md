@@ -1,33 +1,18 @@
-# Argus — AI Agent Reliability & Governance Layer
+# Argus
 
-**Wrap any AI agent with compliance checks, persistent memory, security scanning, and verification loops.**
+> AI-agent reliability & governance layer: auto-firing compliance checks, persistent memory, security scanning, and verification loops that wrap any AI agent.
 
-Built and maintained by Tejas Kembalkar.
+**Why it exists.** Autonomous agents are only safe if they *can't* skip a compliance step or leak data. Argus is the guardrail layer — it wraps any agent (Cursor, Claude, ChatGPT) so policy checks fire automatically, secrets are scanned before actions run, and every output passes a verification loop before it ships.
 
-## What it does
+**Key capabilities.**
+- Auto-firing compliance checks (opt-out, ownership, Rules-of-Engagement)
+- Security/secret scanning before any external action
+- Persistent memory so context survives across a working session
+- Verification loops that catch bad outputs before they're sent
 
-Argus (ECC) is an AI-agent reliability and governance layer. On its own, an AI agent is fast but unsupervised: it can skip a compliance step, lose context mid-task, or surface stale information. Argus wraps any agent (Cursor, Claude, Codex, Gemini) with automatic compliance instincts, persistent cross-session memory, pre-action security scanning (secret detection, unsafe command blocking), verification loops, and a learning loop that turns workflows into reusable skills.
+**Stack.** JavaScript · model-agnostic · pairs with `gtm-automation-engine`, `Daedalus`, and `Valkyrie`.
 
-In plain terms: **Argus is what makes an AI agent safe to run against real data and trustworthy enough for production use.** It does not generate output by itself. It protects and multiplies the value the rest of your agent stack creates.
-
-## Key features
-
-| Capability | What it does |
-|---|---|
-| **Auto-firing compliance** | Instincts fire on every action (e.g. check policy, opt-out status, or ownership before outreach) |
-| **Memory persistence** | Saves and reloads context across sessions so agents resume where they left off |
-| **Continuous learning** | Extracts winning patterns from real sessions into shareable skills |
-| **Security scanning** | Pre-action hooks detect secrets and block unsafe reads or commands |
-| **Verification loops** | Multi-step work is validated, not just produced |
-| **One layer, many tools** | The same governance works across Cursor, Claude, Codex, and Gemini |
-
-## Architecture
-
-```
-Research → Orchestration → Runtime → Argus (govern + improve)
-```
-
-Argus is the final, always-on layer: it governs what the agent is allowed to do, keeps it secure and on-task, and feeds successful patterns back as reusable skills.
+**Status.** Active development. Built and maintained by Tejas Kembalkar.
 
 ECC v2.0.0-rc.1 adds the public Hermes operator story on top of that reusable layer: start with the [Hermes setup guide](docs/HERMES-SETUP.md), then review the [rc.1 release notes](docs/releases/2.0.0-rc.1/release-notes.md) and [cross-harness architecture](docs/architecture/cross-harness.md).
 
