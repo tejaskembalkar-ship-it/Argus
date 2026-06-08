@@ -1,55 +1,33 @@
-# ECC — Agent Reliability & Governance Layer
+# Argus — AI Agent Reliability & Governance Layer
 
-> **Internal Avalara GTM Engineering — Business Case**
-> Audience: Sales Ops & GTM Leadership · One of four repositories in the Avalara GTM agent platform
+**Wrap any AI agent with compliance checks, persistent memory, security scanning, and verification loops.**
 
----
+Built and maintained by Tejas Kembalkar.
 
-## Executive summary
+## What it does
 
-ECC is the **reliability and governance backbone** for Avalara's AI sales agents. On its own, an AI sales agent is fast but unsupervised: it can skip a compliance step, lose the thread on an account mid-task, or surface stale information. ECC wraps any agent (Cursor, Claude, ChatGPT) with automatic compliance checks, persistent memory, security scanning, and a learning loop that turns a top rep's best workflow into a reusable skill the whole team inherits.
+Argus (ECC) is an AI-agent reliability and governance layer. On its own, an AI agent is fast but unsupervised: it can skip a compliance step, lose context mid-task, or surface stale information. Argus wraps any agent (Cursor, Claude, Codex, Gemini) with automatic compliance instincts, persistent cross-session memory, pre-action security scanning (secret detection, unsafe command blocking), verification loops, and a learning loop that turns workflows into reusable skills.
 
-In plain terms: **ECC is what makes an AI sales agent safe to run against real Salesforce data and trustworthy enough to put in front of leadership.** It does not generate pipeline by itself — it protects and multiplies the pipeline the rest of the platform creates.
+In plain terms: **Argus is what makes an AI agent safe to run against real data and trustworthy enough for production use.** It does not generate output by itself. It protects and multiplies the value the rest of your agent stack creates.
 
----
+## Key features
 
-## What it does, what we achieve, and the benefit to Avalara
+| Capability | What it does |
+|---|---|
+| **Auto-firing compliance** | Instincts fire on every action (e.g. check policy, opt-out status, or ownership before outreach) |
+| **Memory persistence** | Saves and reloads context across sessions so agents resume where they left off |
+| **Continuous learning** | Extracts winning patterns from real sessions into shareable skills |
+| **Security scanning** | Pre-action hooks detect secrets and block unsafe reads or commands |
+| **Verification loops** | Multi-step work is validated, not just produced |
+| **One layer, many tools** | The same governance works across Cursor, Claude, Codex, and Gemini |
 
-| Capability | What it does | Benefit to Avalara |
-|---|---|---|
-| **Auto-firing compliance** | "Instincts" fire on every action (e.g. always check ROE / email opt-out / account ownership before any outreach) | 100% Rules-of-Engagement adherence with zero manual reminders — protects against clawbacks and policy violations |
-| **Memory persistence** | Saves and reloads account context across sessions | The agent never re-researches an account it already worked; reps resume instantly |
-| **Continuous learning** | Extracts winning patterns from real sessions into shareable skills | A top rep's discovery/objection/email playbook becomes a skill every rep's agent uses |
-| **Security scanning** | Pre-action hooks detect secrets and block unsafe reads/commands | Safe to operate against Salesforce exports, contact lists, and internal data |
-| **Verification loops** | Multi-step work is validated, not just produced | Qualification and outreach complete the same correct way every time |
-| **One layer, many tools** | The same governance works across Cursor, Claude, Codex, Gemini | No rebuild when the team changes tools |
-
----
-
-## Productivity & revenue impact
-
-ECC's value is **risk reduction and consistency** — it makes the platform's per-rep gains repeatable across the whole team and prevents the costly mistakes that quietly erode the number.
-
-| Lever | Without ECC | With ECC | Impact |
-|---|---|---|---|
-| ROE / opt-out / ownership compliance | Manual, error-prone, skippable | Enforced automatically on every touch | Avoids clawbacks, protects sender reputation and deliverability |
-| Context continuity | Agent starts cold each session | Memory reloads the account | Less re-research, faster cycle time |
-| Knowledge scaling | Best practices stuck in top reps' heads | Captured as shared skills | Every rep's agent performs closer to the best rep — raises the team's attainment floor |
-| Data safety | Risk of leaking credentials / customer data | Blocked by security hooks | Removes a hard blocker to running agents on real CRM data |
-
-**Net effect:** ECC ensures the **~$79K–$119K per-rep/year incremental new-business bookings** that the GTM-project engine targets are actually realized — reliably, compliantly, and across every rep — instead of being lost to skipped checks, lost context, or inconsistent execution.
-
-> **Model basis** (Avalara internal, FY25–FY26 via Glean): new-business ASP ~$11K (2025 blended $10,539), Stage 1→Closed-Won win rate ~30% (FY25 H2 42%), MQL→SQL conversion 53%, rep quota over-assignment +20%. These are conservative planning figures built on Avalara's real ratios, not booked results.
-
----
-
-## Where it fits in the system
+## Architecture
 
 ```
-Scrapling (research) → GTM-project (qualify + write) → hermes-agent (run + learn) → ECC (govern + improve)
+Research → Orchestration → Runtime → Argus (govern + improve)
 ```
 
-ECC is the final, always-on layer: it governs what the agent is allowed to do, keeps it secure and on-task, and feeds successful patterns back into the platform as reusable skills.
+Argus is the final, always-on layer: it governs what the agent is allowed to do, keeps it secure and on-task, and feeds successful patterns back as reusable skills.
 
 ---
 
@@ -1568,6 +1546,10 @@ These configs work for my workflow. You should:
 
 
 ---
+
+## Credits / Attribution
+
+Argus is derived from the [ECC project](https://github.com/affaan-m/ECC) by affaan-m. See [LICENSE](LICENSE) for license terms.
 
 ## License
 
