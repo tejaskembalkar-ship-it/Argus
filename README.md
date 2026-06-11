@@ -10,11 +10,33 @@
 - Persistent memory so context survives across a working session
 - Verification loops that catch bad outputs before they're sent
 
-**Stack.** JavaScript · model-agnostic · pairs with `gtm-automation-engine`, `Daedalus`, and `Valkyrie`.
+**Stack.** JavaScript · model-agnostic · pairs with `Prometheus`, `Daedalus`, and `Valkyrie`.
 
 **Status.** Active development. Built and maintained by Tejas Kembalkar.
 
 ECC v2.0.0-rc.1 adds the public Hermes operator story on top of that reusable layer: start with the [Hermes setup guide](docs/HERMES-SETUP.md), then review the [rc.1 release notes](docs/releases/2.0.0-rc.1/release-notes.md) and [cross-harness architecture](docs/architecture/cross-harness.md).
+
+---
+
+## Hermes integration contract (governance-first)
+
+Argus now includes an optional Hermes adapter at `integrations/hermes/adapter.py`.
+
+- Feature flag: `HERMES_ENABLED=true`
+- Governance wrapper: `gate_then_run(...)`
+- Ordering guarantee: compliance, secret scanning, and verification checks run before any Hermes-initiated external action
+- Persistence: verification outcomes are saved into Hermes memory for cross-session auditability
+
+This keeps Argus as the policy gate while still enabling Daedalus-powered recovery and durable context.
+
+## Pitch position in the 4-repo architecture
+
+| Repo | Role |
+|---|---|
+| `Prometheus (formerly gtm-automation-engine)` | Outbound control center |
+| `Argus` | Governance and verification gate that cannot be bypassed |
+| `Daedalus` | Hermes memory and self-healing runtime |
+| `Valkyrie` | Signal research and extraction |
 
 ---
 

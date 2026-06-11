@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added Hermes integration adapter at `integrations/hermes/adapter.py` with `HERMES_ENABLED` feature flag support.
+- Enforced governance-first execution via `gate_then_run(...)` so compliance/security/verification checks run before Hermes-initiated actions.
+- Persisted governance verification outcomes into Hermes durable memory for cross-session traceability.
+
 ## 2.0.0-rc.1 - 2026-04-28
 
 ### Highlights
